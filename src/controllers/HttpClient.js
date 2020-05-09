@@ -8,7 +8,7 @@ import { API_URL_INFO, API_URL_IT } from 'react-native-dotenv';
 */
 
 const client = axios.create({
-  baseURL: API_URL_IT,
+  baseURL: API_URL_INFO,
   timeout: 100000,
   headers: { 'content-type': 'application/json' },
 });

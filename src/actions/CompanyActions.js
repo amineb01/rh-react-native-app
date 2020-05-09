@@ -23,19 +23,25 @@ const getCompany = company => ({
 
 export const connectCompany = ( companyKey ) => async (dispatch) => {
   dispatch(companyRequest());
-  try {
-    const result = await CompanyController.getCompany( companyKey );
-    if ( result.data.status == 'success' ){
-      let company = result.data.data.companies[0]
-      dispatch( getCompany( company ) );
-      dispatch( getTechniciansList( company.id ) )
-    }else{
-      dispatch(companyError(result.data.message));
-    }
-  } catch (error) {
-    if(error.response && error.response.data )
-      dispatch(companyError(error.response.data.message));
-    else
-      dispatch(companyError(error.message));
-  }
-};
+
+    const result = CompanyController.getCompany( companyKey )
+    .then((result) => {
+      if (result && result.data.status == "success" && result.data.data ){
+        let company = result.data.data.companies[0]
+        dispatch( getCompany( company ) );
+        dispatch( getTechniciansList( company.id ) )
+      }else{
+        dispatch(companyError(result.data.message));
+      }
+    })
+    .catch((error) => {
+      if( error.response.status == 500){
+        dispatch(companyError("erreur serveur"));
+      }
+      else if (error.response) {
+        dispatch(companyError(error.response.data.message));
+      }else{
+        dispatch(companyError("autre erreur"));
+      }
+    });
+  };

@@ -37,6 +37,9 @@ export const login = (login, password, company_id) => async (dispatch) => {
         }
       })
       .catch((error) => {
+        if( error.response.status == 500){
+          dispatch(loginError("erreur serveur"));
+        }
         if (error.response) {
           dispatch(loginError(error.response.data.message));
         }else{

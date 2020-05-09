@@ -6,9 +6,6 @@ class UserController {
   }
 
   login = (login, password, company_id) =>{
-    const headers= {
-        'Content-Type': 'application/json'
-      }
     const body = {
       user: {
         login,
@@ -16,7 +13,7 @@ class UserController {
         company_id
       }
     }
-    return client.post(this.basePath, body , headers)
+    return client.post(this.basePath, body )
   }
 
   logout = () => client.delete(this.basePath);
