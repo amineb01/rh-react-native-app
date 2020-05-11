@@ -5,6 +5,7 @@ import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { createStackNavigator } from '@react-navigation/stack';
 import Home from 'components/Home';
 import Todos from 'components/Todos';
+import Demands from 'components/Demands';
 import NavigationConstants from 'components/navigation/NavigationConstants';
 import Profile from 'components/Profile';
 import Colors from 'helpers/Colors';
@@ -43,6 +44,14 @@ const ProfileNavigator = () => (
     />
   </Stack.Navigator>
 );
+const DemandsNavigator = () => (
+  <Stack.Navigator>
+    <Stack.Screen
+      name={NavigationConstants.demands}
+      component={Demands}
+    />
+  </Stack.Navigator>
+);
 
 const AppNavigator = () => (
   <Tab.Navigator
@@ -56,6 +65,7 @@ const AppNavigator = () => (
   >
     <>
       <Tab.Screen name={NavigationConstants.home} component={HomeNavigator} />
+      <Tab.Screen name={NavigationConstants.demands} component={DemandsNavigator} />
       <Tab.Screen name={NavigationConstants.profile} component={ProfileNavigator} />
     </>
   </Tab.Navigator>

@@ -6,6 +6,7 @@ import todos from './TodosReducer';
 import settings from './SettingsReducer';
 import company from './CompanyReducer';
 import technicians from './TechniciansReducer';
+import demands from './DemandsReducer';
 
 const rootReducer = combineReducers({
   todos,
@@ -14,7 +15,8 @@ const rootReducer = combineReducers({
   status,
   company,
   technicians,
-  settings
+  settings,
+  demands
 });
 
 export default rootReducer;

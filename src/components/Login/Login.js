@@ -50,14 +50,13 @@ function Login(props) {
   const usernameChanged = useCallback(value => { setUsername(value); setDisplay(true)}, [setUsername]);
   const passwordChanged = useCallback(value => setPassword(value), [setPassword]);
   const loginUser = useCallback(() => (
-    dispatch(login('bellarejmohamed-amine_5832', password, company.id ))), [ dispatch, username, password]);
+    dispatch(login(username, password, company.id ))), [ dispatch, username, password]);
     const logoutUser = useCallback(() => (
       dispatch(logout( ))), [ dispatch]);
   const enVersion = useCallback(value => setLng('en'), [setLng]);
   const frVersion = useCallback(() => setLng('fr'), [setLng]);
 
   const handelUpdateItem = useCallback(value => {
-    console.log(value)
     setDisplay(false)
     setUsername(value.first_name+' '+value.last_name)
   }, []);

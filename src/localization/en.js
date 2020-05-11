@@ -3,6 +3,13 @@ export default {
     connect: 'Connect',
     companyKey: "company key"
   },
+  homeScreen:{
+    description: 'description',
+    title : 'Leave request',
+    dd : 'Start date',
+    df : 'End date',
+    addBtn: 'Add a request'
+  },
   login: 'Login',
   loading: 'Loading',
   password: 'Password',

@@ -19,21 +19,27 @@ const styles = StyleSheet.create({
     marginTop:40,
     marginBottom:10
   },
+  buttonDisabled: {
+    backgroundColor:Colors.gray,
+  },
+  buttonEnabled: {
+    backgroundColor:Colors.secondary,
+  },
 });
 
+
 const Button = props => {
-  console.log('btnnnn')
-return(  <TouchableOpacity
-    {...props}
-    style={[styles.button, props.style]}
-  >
-    <Text
-      style={[TextStyles.lightTitle, props.textStyle]}
+  return(  <TouchableOpacity
+      {...props}
+      style={[styles.button, props.style, props.disabled ? styles.buttonDisabled : styles.buttonEnabled]}
     >
-      {props.title}
-    </Text>
-  </TouchableOpacity>
-);
+      <Text
+        style={[TextStyles.lightTitle, props.textStyle]}
+      >
+        {props.title}
+      </Text>
+    </TouchableOpacity>
+  );
 }
 
 Button.propTypes = {

@@ -32,7 +32,6 @@ const styles = StyleSheet.create({
 });
 
 const TextField = props => {
-  console.log(props)
   return (<View style={styles.container}>
     <TextInput
       {...props}

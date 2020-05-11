@@ -3,6 +3,13 @@ export default {
     connect: 'Se connecter',
     companyKey: "clé d'entreprise"
   },
+  homeScreen:{
+    description: 'description',
+    title : 'Demander un congé',
+    dd : 'Date début',
+    df : 'Date fin',
+    addBtn: 'Ajouter une demande'
+  },
   login: 'Athentification',
   loading: 'Loading',
   password: 'Mot de passe',

@@ -25,14 +25,12 @@ export const getTechniciansList = ( companyId ) => async (dispatch) => {
   try {
     const result = await TechniciansController.getTechnicians( companyId );
     if ( result.data.status == 'success' ){
-      console.log('getTechniciansList')
-      console.log(result.data.data.users)
       dispatch(techniciansSuccess( result.data.data.users ));
     }else{
       dispatch(techniciansError(result.data.message));
     }
   } catch (error) {
-    
+
     if(error.response && error.response.data )
       dispatch(techniciansError(error.response.data.message));
     else
