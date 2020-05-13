@@ -27,17 +27,18 @@ const logoutRequest = () => ({
 });
 
 export const login = (login, password, company_id) => async (dispatch) => {
+  console.log(login, password, company_id)
   dispatch(loginRequest());
     UserController.login(login, password, company_id)
       .then((result) => {
-        if (result && result.data.status == "success" && result.data.message == "Logged in" ){
+        if (result.data && result.data.status == "success" && result.data.message == "Logged in" ){
           dispatch(loginSuccess(result.data));
         }else{
           dispatch("you're already log in");
         }
       })
       .catch((error) => {
-        if( error.response.status == 500){
+        if( error.response && error.response.status == 500){
           dispatch(loginError("erreur serveur"));
         }
         if (error.response) {

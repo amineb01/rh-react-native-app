@@ -33,6 +33,7 @@ function Login(props) {
   const dispatch = useDispatch();
 
   const [username, setUsername] = useState('');
+  const [loginusername, setLoginUsername] = useState('');
   const [password, setPassword] = useState('');
   const [display, setDisplay] = useState(false);
 
@@ -50,7 +51,7 @@ function Login(props) {
   const usernameChanged = useCallback(value => { setUsername(value); setDisplay(true)}, [setUsername]);
   const passwordChanged = useCallback(value => setPassword(value), [setPassword]);
   const loginUser = useCallback(() => (
-    dispatch(login(username, password, company.id ))), [ dispatch, username, password]);
+    dispatch(login(loginusername, password, company.id ))), [ dispatch, loginusername, password]);
     const logoutUser = useCallback(() => (
       dispatch(logout( ))), [ dispatch]);
   const enVersion = useCallback(value => setLng('en'), [setLng]);
@@ -58,6 +59,7 @@ function Login(props) {
 
   const handelUpdateItem = useCallback(value => {
     setDisplay(false)
+    setLoginUsername(value.username)
     setUsername(value.first_name+' '+value.last_name)
   }, []);
 

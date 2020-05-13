@@ -15,7 +15,6 @@ import Button from '../common/Button';
 
 import TextStyles from 'helpers/TextStyles';
 import  strings  from 'localization';
-import getUser from 'selectors/UserSelectors';
 import { addDemandToList } from 'actions/DemandsActions';
 
 const Home = ({ navigation }) => {
@@ -24,7 +23,6 @@ const Home = ({ navigation }) => {
   const [df, setdF] = useState('');
   const [disabled, setDisabled] = useState(true);
 
-  const user = useSelector(state => getUser(state));
   const dispatch = useDispatch();
   const descriptionChanged = useCallback(value => setDescription(value), [setDescription]);
   const ddChanged = useCallback(value => setdD(value.date), [setdD]);
@@ -39,7 +37,7 @@ const Home = ({ navigation }) => {
 
   return (
     <View style={styles.container}>
-      <Text style={styles.title} >{disabled+"" }</Text>
+      <Text style={styles.title} >{strings.homeScreen.title }</Text>
 
       <TextField
         placeholder={strings.homeScreen.description}

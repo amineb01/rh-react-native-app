@@ -6,8 +6,6 @@ const initialState = {
 };
 
 const demandsReducer = (state = initialState, action) => {
-  console.log(action.newDemand)
-
   switch (action.type) {
     case actionTypes.DEMANDS_REQUEST:
       return {

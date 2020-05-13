@@ -51,7 +51,6 @@ const styles = StyleSheet.create({
 
 const TextFieldAutoComplete = props =>
 {
-  console.log(props.data)
 return <View style={styles.containerWrapper} >
   <View style={styles.container}>
     <TextInput
